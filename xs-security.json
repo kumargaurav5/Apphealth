@@ -1,0 +1,47 @@
+{
+    "xsappname": "app-status",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.Viewer",
+            "description": "Read CF data and mappings"
+        },
+        {
+            "name": "$XSAPPNAME.Admin",
+            "description": "Start/stop apps and manage mappings"
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "appstatusViewer",
+            "description": "Viewer of CF data/mappings",
+            "scope-references": [
+                "$XSAPPNAME.Viewer"
+            ]
+        },
+        {
+            "name": "appstatusAdmin",
+            "description": "Admin can start/stop apps & upsert mappings",
+            "scope-references": [
+                "$XSAPPNAME.Admin",
+                "$XSAPPNAME.Viewer"
+            ]
+        }
+    ],
+    "role-collections": [
+        {
+            "name": "Z_APPSTATUS_VIEWER",
+            "description": "Assign to users who need read-only access",
+            "role-template-references": [
+                "appstatusViewer"
+            ]
+        },
+        {
+            "name": "Z_APPSTATUS_ADMIN",
+            "description": "Assign to users who can control apps",
+            "role-template-references": [
+                "appstatusAdmin"
+            ]
+        }
+    ]
+}
