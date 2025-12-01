@@ -1,32 +1,35 @@
 {
-    "name": "app-status",
-    "version": "1.0.0",
-    "scripts": {
-        "start": "cds-serve",
-        "watch": "cds watch",
-        "build": "cds build --production",
-        "deploy": "cds deploy --to hana"
-    },
-    "dependencies": {
-        "@sap/cds": "^9.4.4",
-        "@sap/hana-client": "^2",
-        "@sap/xsenv": "^4",
-        "@sap/xssec": "^3",
-        "axios": "^1",
-        "express": "^4",
-        "jsonwebtoken": "^9"
-    },
-    "engines": {
-        "node": ">=18"
-    },
-    "cds": {
-        "requires": {
-            "auth": {
-                "kind": "xsuaa"
-            },
-            "db": {
-                "kind": "hana"
-            }
-        }
+  "name": "cap-cf-admin",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@cap-js/hana": "^2.4.1",
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap/cds": "^9.5.1",
+    "@sap/hana-client": "^2",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^9",
+    "@sap/hdi-deploy": "^4"
+  },
+  "scripts": {
+    "start": "cds serve",
+    "watch": "cds watch",
+    "deploy": "cds deploy"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana"
+      },
+      "auth": {
+        "kind": "dummy"
+      }
     }
+  }
 }

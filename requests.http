@@ -1,0 +1,5 @@
+### Sync All Accounts
+POST http://localhost:4004/odata/v4/cf/SyncAllAccounts
+Content-Type: application/json
+
+{}
